@@ -79,7 +79,7 @@ Note: Remind them about the dot at the front of the filename!
 
 ## Exercise Part 4: Make it pass
 
-* Implement code to make the tests pass (see Story 1)
+* Implement code to make the **_petrol tests_** pass (see Story 1)
 * ___***Do not change ‘DummyTaxCalculator’***___—write your own implementation (e.g. ‘DefaultTaxCalculator’)*
 * Try to ___***keep your build green***___
 * ___***Do not change the tests***___ (except to introduce your new calculator)
