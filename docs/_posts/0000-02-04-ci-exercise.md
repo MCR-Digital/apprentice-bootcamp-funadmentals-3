@@ -1,11 +1,12 @@
 ## Exercise prep
 
+(in case you haven’t got set up yet)
+
 * Fork https://github.com/MCR-Digital/tax_calculator
 * `git clone https://github.com/[USER]/tax_calculator.git`
 * Make sure you can run tests in your language  
 (they are all ignored to start with)
-  * Java folk: import the `exercises/java` directory using ‘Import project from external model’
-  * Choose ‘Use default gradle wrapper (recommended)’
+  * Java folk: open IntelliJ IDEA and from the `File` menu choose `Open`, then select the `build.gradle` file from the `exercises\java` directory.
 
 --
 
@@ -48,7 +49,7 @@ script:
 
 ```yaml
 language: node_js
-before_script: "cd exercises/javascript"
+before_install: "cd exercises/javascript"
 node_js:
   - 10
 ```
@@ -89,3 +90,12 @@ Note: Remind them about the dot at the front of the filename!
 **\*N.B. you'll need to set the year to `2019` in your `TaxCalculator` object**
 
 Note: Did you get an email telling you it had failed?  
+
+--
+
+## Exercise Reflection
+
++ What do you think you actually set up?
++ How easy was it to set up?
++ How many commits did you make?
++ How does this contrast with your organisation?
