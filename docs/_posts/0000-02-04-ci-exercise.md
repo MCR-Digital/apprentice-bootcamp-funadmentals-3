@@ -11,8 +11,14 @@ Note: explain difference between forking and using a template.
 
 * Look at your fork of the repo at https://github.com
 * Select the 'Actions' tab
-* Click the 'New workflow' button
-* Find the right workflow for your language (ask if you're not sure)
+* Find the right workflow for your language from the table below
+***
+| JavaScript | TypeScript | Java             | Kotlin           | PHP | C#   |
+|------------|------------|------------------|------------------|-----|------|
+| Node.js    | Node.js    | Java with Gradle | Java with Gradle | PHP | .NET |
+<!-- .element: style="font-size: 70%" -->
+***
+
 * Click the 'Configure' button
 * You should see an online editor with a default YAML file loaded
 
@@ -28,7 +34,18 @@ Note:
 
 --
 
-Java / Kotlin
+Kotlin
+```yaml
+- name: Build with Gradle
+  uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+  with:
+    arguments: build
+    build-root-directory: exercises/kotlin
+```
+
+--
+
+Java
 ```yaml
 - name: Build with Gradle
   uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
@@ -59,13 +76,36 @@ defaults:
     
 jobs:
   ...
+  - name: Validate composer.json and composer.lock
+    run: composer validate --no-check-publish
+  ...
   - name: Run test suite
     run: ./vendor/bin/phpunit --testdox tests
 ```
 
 --
 
-Javascript / Typescript
+JavaScript
+```yaml
+defaults:
+  run:
+    working-directory: exercises/javascript
+
+jobs:
+  ...
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: 'exercises/typescript/package-lock.json'
+```
+
+--
+
+TypeScript
 ```yaml
 defaults:
   run:
